@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const user = process.env.EMAIL;
   const password = process.env.PASSWORD;
 
-  console.log(typeof message);
+  console.log("mesasge", message);
 
   const client = new SMTPClient({
     user,

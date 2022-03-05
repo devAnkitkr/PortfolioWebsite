@@ -25,10 +25,11 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate({ ...state }) === true) {
-      console.log("state value on submition", state);
       const { email, name, message } = state;
+      const websiteUrl = process.env.BASE_URL;
+      console.log("website url from env",websiteUrl);
       await axios
-        .post("http://localhost:3000/api/email", { name, email, message })
+        .post(`${websiteUrl}/api/email`, { name, email, message })
         .then((res) => {
           if (res.status == 200) {
             alert(res.data.msg);
