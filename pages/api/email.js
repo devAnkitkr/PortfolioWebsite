@@ -6,7 +6,8 @@ export default async function handler(req, res) {
   const user = process.env.EMAIL;
   const password = process.env.PASSWORD;
 
-  console.log("mesasge", message);
+  console.log("request data", name, email, message);
+  console.log("env user and pass", user, password);
 
   const client = new SMTPClient({
     user,
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
     host: "smtp.gmail.com",
     ssl: true,
   });
-  console.log("user email id", email);
+
   try {
     const data = await client.sendAsync({
       text:
