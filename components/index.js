@@ -10,4 +10,6 @@ export { default as ServiceSection } from "./services";
 
 export { default as ContactSection } from "./contact";
 
+export { default as ContactUs } from "./contactTest";
+
 export { default as ScrollToTop } from "./scrollToTop";

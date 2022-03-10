@@ -1,38 +1,49 @@
-import { SMTPClient } from "emailjs";
+// import emailjs from "@emailjs/browser";
+import axios from "axios";
+// import { init } from "@emailjs/browser";
+// init("user_Seh9J6JIf4oYoVkwaaUqk");
 
 export default async function handler(req, res) {
   const { name, email, message } = req.body;
 
-  const user = process.env.EMAIL;
-  const password = process.env.PASSWORD;
+  console.log("req. body", name, email, message);
 
-  console.log("request data", name, email, message);
-  console.log("env user and pass", user, password);
-
-  const client = new SMTPClient({
-    user,
-    password,
-    host: "smtp.gmail.com",
-    ssl: true,
-  });
-
+  const template_params = {
+    user_name: name,
+    user_email: email,
+    message: message,
+  };
+  var formData = {
+    service_id: "service_avb7shg",
+    template_id: "template_syhwxtl",
+    user_id: "user_Seh9J6JIf4oYoVkwaaUqk",
+    template_params: {
+      user_name: name,
+      user_email: email,
+      message,
+    },
+  };
   try {
-    const data = await client.sendAsync({
-      text:
-        "name: " +
-        name +
-        "\n" +
-        "email: " +
-        email +
-        "\n" +
-        "message: " +
-        message,
-      from: email,
-      to: user,
-      subject: "www.devankitkr.com",
-    });
+    const data = await axios
+      .post("https://api.emailjs.com/api/v1.0/email/send", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response);
+          res
+            .status(200)
+            .end(JSON.stringify({ msg: "Message has been sent!" }));
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          res.status(400).end(JSON.stringify({ msg: "Message not sent!" }));
+        }
+      );
+
     console.log(data);
-    res.status(200).end(JSON.stringify({ msg: "Message has been sent!" }));
   } catch (error) {
     console.log(error);
   }

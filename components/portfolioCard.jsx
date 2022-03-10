@@ -1,6 +1,6 @@
 import React from "react";
 
-const PortfolioCard = ({ title, link, image }) => {
+const PortfolioCard = ({ title, link, image, text }) => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center p-2 mb-8 mx-10 m mx-auto lg:min-h-fit lg:m-0 lg:max-w-fit lg:m-20 border rounded">
       <div className="lg:w-6/12">
@@ -10,10 +10,7 @@ const PortfolioCard = ({ title, link, image }) => {
       </div>
       <div className="flex flex-col items-start w-full lg:w-6/12 lg:pl-10">
         <h1 className="text-2xl font-bold my-2 text-primary">{title}</h1>
-        <p className="text-secondary my-2">
-          Website adaptable to all devices, with ui components and animated
-          interactions.
-        </p>
+        <p className="text-secondary my-2">{text}</p>
         <a
           href={link}
           target="_blank"

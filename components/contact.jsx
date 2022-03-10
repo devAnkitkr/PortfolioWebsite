@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IconSvg } from "../IconSvg/iconsvg";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
+import { init } from "@emailjs/browser";
+init(process.env.EMAIL_JS_USER_ID);
 
 const ContactSection = () => {
   const [state, setState] = useState({
@@ -10,6 +12,9 @@ const ContactSection = () => {
   });
 
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+
   const validate = ({ name, email, message }) => {
     if (name == "" || email == "" || message == "") {
       return false;
@@ -21,27 +26,51 @@ const ContactSection = () => {
     const value = e.target.value;
     setState({ ...state, [name]: value });
     setError("");
+    setLoading(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (validate({ ...state }) === true) {
       const { email, name, message } = state;
+
       const websiteUrl = process.env.BASE_URL;
-      console.log("website url from env",websiteUrl);
-      await axios
-        .post(`${websiteUrl}/api/email`, { name, email, message })
-        .then((res) => {
-          if (res.status == 200) {
-            alert(res.data.msg);
-          } else alert("Message not sent");
-          setState({
-            name: "",
-            email: "",
-            message: "",
-          });
-        })
-        .catch((e) => console.log(e));
-    } else setError("one of the field is empty *");
+
+      var templateParams = {
+        subject: "devankitkr.com",
+        user_name: name,
+        user_email: email,
+        message: message,
+      };
+      setLoading(true);
+
+      emailjs
+        .send(
+          process.env.EMAIL_JS_SERVICE_ID,
+          process.env.EMAIL_JS_TEMPLATE_ID,
+          templateParams
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            setState({
+              name: "",
+              email: "",
+              message: "",
+            });
+            setSuccess("Message sent");
+            setLoading(false);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+            setLoading(false);
+            setError("Message not sent");
+          }
+        );
+    } else {
+      setError("one of the field is missing*");
+    }
+    setInterval(() => setSuccess(""), 6000);
   };
   return (
     <section id="contact">
@@ -69,7 +98,7 @@ const ContactSection = () => {
               <span className="flex flex-col pl-2">
                 <h2 className="font-bold text-lg text-primary">Location</h2>
                 <p className="text-secondary">
-                  Shalimar garden Ghaziabad,India
+                  Shalimar garden Ghaziabad, India
                 </p>
               </span>
             </div>
@@ -114,18 +143,31 @@ const ContactSection = () => {
                 ></textarea>
               </div>
               <button
-                className="bg-accent text-accent font-bold flex py-3 my-4 px-4 rounded ease-in duration-150 hover:bg-yellow-500 hover:scale-105"
+                className={`bg-accent text-accent font-bold flex py-3 my-4 px-4 rounded ease-in duration-150 hover:bg-yellow-500 hover:scale-105 ${
+                  loading ? "pointer-events-none" : "pointer-events-auto"
+                }`}
                 onClick={handleSubmit}
               >
                 Send Message
-                <span className="ml-2 origin-center rotate-90">
-                  {IconSvg.SendButtonIcon}
-                </span>
+                {loading ? (
+                  <span className="ml-2 animate-spin">
+                    {IconSvg.LoaderIcon}
+                  </span>
+                ) : (
+                  <span className="ml-2 origin-center rotate-90">
+                    {IconSvg.SendButtonIcon}
+                  </span>
+                )}
               </button>
             </form>
             {error !== "" && (
-              <span className="text-red-700 hue-rotate-15 p-2 rounded">
+              <span className="text-red-500 bg-white p-0  px-2 border-l-2 border-red-500">
                 {error}
+              </span>
+            )}
+            {success !== "" && (
+              <span className="text-green-00 bg-white py-1 px-2 border-l-2 border-green-500">
+                {success}
               </span>
             )}
           </div>

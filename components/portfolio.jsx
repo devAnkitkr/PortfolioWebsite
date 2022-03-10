@@ -23,9 +23,10 @@ const PortfolioSection = () => {
           >
             <SwiperSlide>
               <PortfolioCard
-                title="Classy Tulip"
-                link="https://classytulip.com/"
-                image="/classytulip.jpg"
+                title="GamersFeed"
+                link="https://gamersfeed.vercel.app/"
+                image="/gamersfeed.jpg"
+                text="Gaming news website, build on next js and graphcms"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -33,20 +34,15 @@ const PortfolioSection = () => {
                 title="Classy Tulip"
                 link="https://classytulip.com/"
                 image="/classytulip.jpg"
+                text="Home decor e-commerce website, build on wordpress"
               />
             </SwiperSlide>
             <SwiperSlide>
               <PortfolioCard
-                title="Classy Tulip"
-                link="https://classytulip.com/"
-                image="/classytulip.jpg"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <PortfolioCard
-                title="Classy Tulip"
-                link="https://classytulip.com/"
-                image="/classytulip.jpg"
+                title="Crown Store"
+                link="https://crownstore.netlify.app/"
+                image="/crownstore.jpg"
+                text="Clothing store, build on react js and stripe payment"
               />
             </SwiperSlide>
           </Swiper>
