@@ -1,7 +1,7 @@
-import React from "react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import PortfolioCard from "./portfolioCard";
+import React from 'react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import PortfolioCard from './portfolioCard';
 
 const PortfolioSection = () => {
   return (
@@ -19,14 +19,22 @@ const PortfolioSection = () => {
             navigation
             pagination={{ clickable: true }}
             onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
+            onSlideChange={() => console.log('slide change')}
           >
             <SwiperSlide>
               <PortfolioCard
                 title="GamersFeed"
                 link="https://gamersfeed.vercel.app/"
                 image="/gamersfeed.jpg"
-                text="Gaming news website, build on next js and graphcms"
+                text="Gaming news website, build on Next js and graphcms"
+              />
+            </SwiperSlide>{' '}
+            <SwiperSlide>
+              <PortfolioCard
+                title="Misaaka"
+                link="https://misaaka.vercel.app/"
+                image="/misaaka.jpg"
+                text="Crockery ecommerce website, build on Next js and stripe payment"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -39,10 +47,10 @@ const PortfolioSection = () => {
             </SwiperSlide>
             <SwiperSlide>
               <PortfolioCard
-                title="Crown Store"
-                link="https://crownstore.netlify.app/"
-                image="/crownstore.jpg"
-                text="Clothing store, build on react js and stripe payment"
+                title="The Cult Fashion"
+                link="https://thecultfashion.vercel.app/"
+                image="/thecultfashion.jpg"
+                text="Clothing store website, build on Next js and Paypal payment"
               />
             </SwiperSlide>
           </Swiper>

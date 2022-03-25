@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { IconSvg } from "../IconSvg/iconsvg";
-import emailjs from "@emailjs/browser";
-import { init } from "@emailjs/browser";
+import { useState } from 'react';
+import { IconSvg } from '../IconSvg/iconsvg';
+import emailjs from '@emailjs/browser';
+import { init } from '@emailjs/browser';
 init(process.env.EMAIL_JS_USER_ID);
 
 const ContactSection = () => {
   const [state, setState] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState('');
 
   const validate = ({ name, email, message }) => {
-    if (name == "" || email == "" || message == "") {
+    if (name == '' || email == '' || message == '') {
       return false;
     }
     return true;
@@ -25,7 +25,7 @@ const ContactSection = () => {
     const name = e.target.name;
     const value = e.target.value;
     setState({ ...state, [name]: value });
-    setError("");
+    setError('');
     setLoading(false);
   };
   const handleSubmit = async (e) => {
@@ -37,7 +37,7 @@ const ContactSection = () => {
       const websiteUrl = process.env.BASE_URL;
 
       var templateParams = {
-        subject: "devankitkr.com",
+        subject: 'devankitkr.com',
         user_name: name,
         user_email: email,
         message: message,
@@ -52,25 +52,25 @@ const ContactSection = () => {
         )
         .then(
           function (response) {
-            console.log("SUCCESS!", response.status, response.text);
+            console.log('SUCCESS!', response.status, response.text);
             setState({
-              name: "",
-              email: "",
-              message: "",
+              name: '',
+              email: '',
+              message: '',
             });
-            setSuccess("Message sent");
+            setSuccess('Message sent');
             setLoading(false);
           },
           function (error) {
-            console.log("FAILED...", error);
+            console.log('FAILED...', error);
             setLoading(false);
-            setError("Message not sent");
+            setError('Message not sent');
           }
         );
     } else {
-      setError("one of the field is missing*");
+      setError('one of the field is missing*');
     }
-    setInterval(() => setSuccess(""), 6000);
+    setInterval(() => setSuccess(''), 6000);
   };
   return (
     <section id="contact">
@@ -144,7 +144,7 @@ const ContactSection = () => {
               </div>
               <button
                 className={`bg-accent text-accent font-bold flex py-3 my-4 px-4 rounded ease-in duration-150 hover:bg-yellow-500 hover:scale-105 ${
-                  loading ? "pointer-events-none" : "pointer-events-auto"
+                  loading ? 'pointer-events-none' : 'pointer-events-auto'
                 }`}
                 onClick={handleSubmit}
               >
@@ -160,12 +160,12 @@ const ContactSection = () => {
                 )}
               </button>
             </form>
-            {error !== "" && (
+            {error !== '' && (
               <span className="text-red-500 bg-white p-0  px-2 border-l-2 border-red-500">
                 {error}
               </span>
             )}
-            {success !== "" && (
+            {success !== '' && (
               <span className="text-green-00 bg-white py-1 px-2 border-l-2 border-green-500">
                 {success}
               </span>

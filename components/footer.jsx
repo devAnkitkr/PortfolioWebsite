@@ -1,4 +1,4 @@
-import { IconSvg } from "../IconSvg/iconsvg";
+import { IconSvg } from '../IconSvg/iconsvg';
 const Footer = () => {
   return (
     <footer id="footer" className="bg-secondary text-secondary">
@@ -6,13 +6,25 @@ const Footer = () => {
         <h1 className="text-lg font-semibold">Devankitkr</h1>
         <p>Web Developer</p>
         <div className="flex justify-between w-[100px] my-6">
-          <a href="/">
+          <a
+            href="https://www.linkedin.com/in/ankkitkr/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>{IconSvg.LinkedinIcon}</span>
           </a>
-          <a href="/">
+          <a
+            href="https://github.com/devAnkitkr"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>{IconSvg.GithubIcon}</span>
           </a>
-          <a href="/">
+          <a
+            href="https://wa.me/919958071589?text=Can+we+talk%3F"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>{IconSvg.WhatsappIcon}</span>
           </a>
         </div>

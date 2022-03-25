@@ -1,5 +1,5 @@
-import React from "react";
-import { IconSvg } from "../IconSvg/iconsvg";
+import React from 'react';
+import { IconSvg } from '../IconSvg/iconsvg';
 
 const HomeSection = () => {
   return (
@@ -7,13 +7,25 @@ const HomeSection = () => {
       <div className="flex text-primary items-center justify-center min-h-screen max-w-screen-lg lg:pt-20 m-auto">
         <div className="grid gap-4 gap-y-10 grid-cols-3 px-6 lg:px-0 py-10 items-center">
           <div className="w-8 grid gap-4">
-            <a href="/">
+            <a
+              href="https://www.linkedin.com/in/ankkitkr/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="">{IconSvg.LinkedinIcon}</div>
             </a>
-            <a href="/">
+            <a
+              href="https://github.com/devAnkitkr"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="">{IconSvg.GithubIcon}</div>
             </a>
-            <a href="/">
+            <a
+              href="https://wa.me/919958071589?text=Can+we+talk%3F"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="">{IconSvg.WhatsappIcon}</div>
             </a>
           </div>

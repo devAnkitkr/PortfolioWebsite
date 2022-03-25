@@ -1,7 +1,6 @@
-import "../styles/globals.css";
-import "../styles/swiper.css";
-import "../styles/index.css";
-import Layout from "../components/layout";
+import '../styles/globals.css';
+import '../styles/swiper.css';
+import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }) {
   return (
