@@ -24,7 +24,7 @@ const PortfolioSection = () => {
             <SwiperSlide>
               <PortfolioCard
                 title="GamersFeed"
-                link="https://gamersfeed.vercel.app/"
+                link="https://gamersfeed.in"
                 image="/gamersfeed.jpg"
                 text="Gaming news website, build on Next js and graphcms"
               />
@@ -32,7 +32,7 @@ const PortfolioSection = () => {
             <SwiperSlide>
               <PortfolioCard
                 title="Misaaka"
-                link="https://misaaka.vercel.app/"
+                link="https://misaaka.in"
                 image="/misaaka.jpg"
                 text="Crockery ecommerce website, build on Next js and stripe payment"
               />

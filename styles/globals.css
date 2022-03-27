@@ -14,7 +14,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: 'Poppins', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 ul {
@@ -58,7 +58,7 @@ body-color:slate-50 */
     /* White */
     --color-text-primary: #ffffff;
     /* Lavender Blush */
-    --color-text-secondary: #FAF0F0;
+    --color-text-secondary: #faf0f0;
     /* darkest purple */
     --color-text-accent: #261c2c;
   }

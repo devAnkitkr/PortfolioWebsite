@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Link from "next/link";
-import { IconSvg } from "../IconSvg/iconsvg";
-import ToggleTheme from "./toggleTheme";
+import { useState } from 'react';
+import Link from 'next/link';
+import { IconSvg } from '../IconSvg/iconsvg';
+import ToggleTheme from './toggleTheme';
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -9,7 +9,10 @@ const Header = () => {
     setToggleMenu(!toggleMenu);
   };
   return (
-    <header id="header" className="w-full min-h-[60px] flex items-center fixed bottom-0 left-0 z-10 bg-secondary shadow-[0_1px_20px_5px_rgba(0,0,0,0.2)] lg:top-0 lg:h-20">
+    <header
+      id="header"
+      className="w-full min-h-[60px] flex items-center fixed bottom-0 left-0 z-10 bg-secondary shadow-[0_1px_20px_1px_rgba(0,0,0,0.1)] lg:top-0 lg:h-20"
+    >
       <nav className="w-full max-w-screen-lg text-primary mx-auto flex justify-between items-center px-6  py-1 lg:px-0 lg:py-0">
         <Link href="/">
           <h1 className="cursor-pointer text-2xl font-bold"> DevAnkitKr</h1>
@@ -18,7 +21,7 @@ const Header = () => {
         <div className="flex items-center text-primary">
           <ul
             className={`md:transition-[bottom] md:ease-in md:duration-300 shadow-[0_35px_60px_1px_rgba(0,0,0,0.5)] bg-secondary rounded-2xl p-2 pt-10 pb-14 rounded-b-none w-full fixed ${
-              toggleMenu ? "bottom-0 " : "bottom-[-100%]"
+              toggleMenu ? 'bottom-0 ' : 'bottom-[-100%]'
             } left-0 z-50 grid gap-4 grid-cols-3 grid-rows-2 col-end-3 lg:relative lg:grid-cols-6 lg:grid-rows-1 lg:gap-6 lg:shadow-none lg:p-4`}
           >
             <li className="">

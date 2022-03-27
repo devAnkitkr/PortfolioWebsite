@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 import {
   HomeSection,
@@ -8,17 +8,14 @@ import {
   ServiceSection,
   ContactSection,
   ScrollToTop,
-} from "../components";
+} from '../components';
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <meta
-          name="Devankitkr.com"
-          content="Portfolio website for web developing"
-        />
+        <title>Devankitkr.in</title>
+        <meta name="Devankitkr.in" content="Web developer Portfolio website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeSection />

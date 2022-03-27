@@ -8,6 +8,11 @@ export default function ToggleTheme() {
   );
 
   useEffect(() => {
+    const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (darkThemeMq.matches && Cookie.get('toggleTheme') == undefined) {
+      setIsDark(true);
+      return;
+    }
     const root = window.document.documentElement;
     root.classList.remove(isDark ? 'light' : 'dark');
     root.classList.add(isDark ? 'dark' : 'light');
