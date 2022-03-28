@@ -299,11 +299,17 @@ js_cookie__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? 
 function ToggleTheme() {
     const { 0: isDark , 1: setIsDark  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(js_cookie__WEBPACK_IMPORTED_MODULE_3__["default"].get('toggleTheme') ? JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_3__["default"].get('toggleTheme')) : false);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-        if (darkThemeMq.matches && js_cookie__WEBPACK_IMPORTED_MODULE_3__["default"].get('toggleTheme') == undefined) {
-            setIsDark(true);
-            return;
-        }
+        // const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+        const root = window.document.documentElement;
+        // if (darkThemeMq.matches && Cookie.get('toggleTheme') == undefined) {
+        //   console.log(darkThemeMq.matches);
+        //   console.log(Cookie.get('toggleTheme'));
+        //   root.classList.add('dark');
+        //   return;
+        // } else { }
+        root.classList.add('light');
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         const root = window.document.documentElement;
         root.classList.remove(isDark ? 'light' : 'dark');
         root.classList.add(isDark ? 'dark' : 'light');
