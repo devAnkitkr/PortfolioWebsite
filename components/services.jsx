@@ -1,6 +1,6 @@
-import React from "react";
-import { IconSvg } from "../IconSvg/iconsvg";
-import CustomCard from "./customCard";
+import React from 'react';
+import { IconSvg } from '../IconSvg/iconsvg';
+import CustomCard from './customCard';
 
 const ServiceSection = () => {
   return (
@@ -15,30 +15,30 @@ const ServiceSection = () => {
             icon={IconSvg.UIUXIcon}
             title="UI-UX Design"
             features={[
-              "Visually Appealing Design",
-              "User friendly",
-              "Mobile responsive",
-              "Cross Browser Compatibility",
+              'Visually Appealing Design',
+              'User friendly',
+              'Mobile responsive',
+              'Cross Browser Compatibility',
             ]}
           />
           <CustomCard
             icon={IconSvg.FullStackIcon}
-            title="Fulltack Developer"
+            title="Fullstack Developer"
             features={[
-              "Latest Technologies",
-              "Optimized Coding",
-              "Ecommerce and bloging features",
-              "Perfect for complex websites",
+              'Latest Technologies',
+              'Optimized Coding',
+              'Ecommerce and bloging features',
+              'Perfect for complex websites',
             ]}
           />
           <CustomCard
             icon={IconSvg.BrandingIcon}
             title="Branding Designer "
             features={[
-              "SEO optimized",
-              "Mobile responsive Design",
-              "Google search optimized ",
-              "Digital marketing",
+              'SEO optimized',
+              'Mobile responsive Design',
+              'Google search optimized ',
+              'Digital marketing',
             ]}
           />
         </div>
